@@ -1,5 +1,5 @@
 
-@include('dashboard.admin.vtu.header')
+@include('dashboard.admin.header')
   
 
   <!-- Content Wrapper. Contains page content -->
@@ -14,14 +14,14 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard v1</li>
+              <li class="breadcrumb-item active">Dashboard </li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-    @include('dashboard.admin.vtu.sidebar')
+    @include('dashboard.admin.sidebar')
 
     <!-- Main content -->
     <section class="content">
@@ -32,9 +32,9 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>{{ $countwaec }}</h3>
+                <h3>1</h3>
 
-                <p>WAEC Cards</p>
+                <p>Task</p>
               </div>
               <div class="icon">
                 <ion-icon name="wifi-outline"></ion-icon>
@@ -46,116 +46,12 @@
           </div>
 
 
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-danger">
-              <div class="inner">
-                <h3>{{ $countaecused }}</h3>
-
-                <p>WAEC Cards Used</p>
-              </div>
-              <div class="icon">
-                <ion-icon name="wifi-outline"></ion-icon>
-                
-                <i class="ion ion-wifi"></i>
-              </div>
-              <a href="{{ url('admin/usedscrahcards') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
+         
 
 
 
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-secondary">
-              <div class="inner">
-                <h3>{{ $countwaecavailable }}</h3>
+       
 
-                <p>WAEC Cards Available</p>
-              </div>
-              <div class="icon">
-                <ion-icon name="wifi-outline"></ion-icon>
-                
-                <i class="ion ion-wifi"></i>
-              </div>
-              <a href="{{ url('admin/viewwaecscrahcards') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-
-
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-dark">
-              <div class="inner">
-                <h3>{{ $countneco }}</h3>
-
-                <p>NECO Cards</p>
-              </div>
-              <div class="icon">
-                <ion-icon name="wifi-outline"></ion-icon>
-                
-                <i class="ion ion-wifi"></i>
-              </div>
-              <a href="{{ url('admin/viewnecoscrahcards') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-
-
-
-
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-danger">
-              <div class="inner">
-                <h3>{{ $countnecoused }}</h3>
-
-                <p>NECO Cards Used</p>
-              </div>
-              <div class="icon">
-                <ion-icon name="wifi-outline"></ion-icon>
-                
-                <i class="ion ion-wifi"></i>
-              </div>
-              <a href="{{ url('admin/usedscrahcards') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-
-
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-secondary">
-              <div class="inner">
-                <h3>{{ $countnecoavail }}</h3>
-
-                <p>NECO Cards Available</p>
-              </div>
-              <div class="icon">
-                <ion-icon name="wifi-outline"></ion-icon>
-                {{-- <i class="ion ion-stats-bars"></i> --}}
-              </div>
-              <a href="{{ url('admin/viewnecoscrahcards') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-
-          
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-success">
-              <div class="inner">
-                <h3>53<sup style="font-size: 20px"></sup></h3>
-
-                <p>Airtime </p>
-              </div>
-              <div class="icon">
-                {{-- <i class="ion ion-stats-bars"></i> --}}
-                <i class="fa fa-globe"></i>
-                {{-- <ion-icon name="globe-outline"></ion-icon> --}}
-              </div>
-              <a href="{{ url('airtimesubscribers') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-warning">
@@ -237,7 +133,7 @@
               <div class="card-header">
                 <h3 class="card-title">
                   <i class="fas fa-chart-pie mr-1"></i>
-                  Sales
+                  Task
                 </h3>
                 <div class="card-tools">
                   <ul class="nav nav-pills ml-auto">
@@ -753,4 +649,4 @@
   </div>
   
 
-@include('dashboard.admin.vtu.footer')
+@include('dashboard.admin.footer')

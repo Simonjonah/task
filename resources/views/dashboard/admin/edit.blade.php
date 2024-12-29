@@ -3,10 +3,10 @@
 
 
 
-@include('dashboard.admin.vtu.header')
+@include('dashboard.admin.header')
 
 
-  @include('dashboard.admin.vtu.sidebar')
+  @include('dashboard.admin.sidebar')
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -14,12 +14,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Add Scrach Card</h1>
+            <h1 class="m-0 text-dark">Edit Task</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Add Scrach Card </li>
+              <li class="breadcrumb-item active">Edit Task </li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -36,7 +36,7 @@
           <!-- general form elements -->
           <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">Add Scrach Card</h3>
+              <h3 class="card-title">Edit Task</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
@@ -44,8 +44,7 @@
               <div class="row">
                 <div class="col-lg-6">
                   
-                  <form action="{{ url('admin/createscrachcard') }}" method="post" enctype="multipart/form-data">
-                    {{-- <form action="{{ route('admin.creatprofessional') }}" method="post" enctype="multipart/form-data"> --}}
+                  <form action="{{ url('admin/task/updateetask/'.$edit_task->ref_no) }}" method="post" enctype="multipart/form-data">
                     @csrf
                     @if (Session::get('success'))
                         <div class="alert alert-success">
@@ -58,43 +57,23 @@
                         {{ Session::get('fail') }}
                         </div>
                     @endif
-                    
+                    @method('PUT')
                   <div class="card-body">
-                    
                     <div class="form-group">
-                      <label for="exampleInputEmail1">Serial Number</label>
+                      <label for="exampleInputEmail1">Task Name</label>
                     
-                      <input type="text" name="serial_number" class="form-control" @error('serial_number') 
+                      <input type="text" name="task_name" class="form-control" @error('task_name') 
                           
-                      @enderror value="" id="exampleInputEmail1" placeholder="Serial Number"> 
+                      @enderror value="{{ $edit_task->task_name }}" id="exampleInputEmail1" placeholder="Task Name"> 
                     </div>
-                    @error('serial_number')
+                    @error('task_name')
                     <span class="text-danger">{{ $message }}</span>
                     @enderror
 
 
 
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">Pin Number</label>
                     
-                      <input type="text" name="pin" class="form-control" @error('pin') 
-                          
-                      @enderror value="" id="exampleInputEmail1" placeholder="Pin Number"> 
-                    </div>
-                    @error('pin')
-                    <span class="text-danger">{{ $message }}</span>
-                    @enderror
 
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">Pin Type</label>
-                    
-                      <select name="type" class="form-control">
-                        <option value="NECO">NECO</option>
-                      </select>
-                    </div>
-                    @error('type')
-                    <span class="text-danger">{{ $message }}</span>
-                    @enderror
 
                   </div>
                 </div>
@@ -104,19 +83,19 @@
                 <div class="col-lg-6">
                   
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Amount</label>
+                    <label for="exampleInputEmail1">Priority</label>
                   
-                    <input type="number" name="amount" class="form-control" @error('amount') 
+                    <input type="number" name="priority" class="form-control" @error('priority') 
                         
-                    @enderror value="" id="exampleInputEmail1" placeholder="Amount"> 
+                    @enderror value="{{ $edit_task->priority }}" id="exampleInputEmail1" placeholder="Priority"> 
                   </div>
-                  @error('amount')
+                  @error('priority')
                   <span class="text-danger">{{ $message }}</span>
                   @enderror
 
     
                   <div class="card-footer">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Update</button>
                   </div>
 
              
@@ -132,4 +111,4 @@
     </div><!-- /.container-fluid -->
   </section>
   </div>
-      @include('dashboard.admin.vtu.footer')
+      @include('dashboard.admin.footer')
