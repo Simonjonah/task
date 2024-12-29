@@ -75,7 +75,7 @@
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
          
           <div class="dropdown-divider"></div>
-          <a href="{{ url('admin/logout') }}" class="dropdown-item">
+          <a href="{{ url('web/logout') }}" class="dropdown-item">
             <i class="fas fa-user mr-2"></i> Logout
           </a>
       </li>

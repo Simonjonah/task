@@ -11,4 +11,8 @@ class Task extends Model
         'ref_no',
         'priority',
     ];
+
+    public function scopeOrdered($query){
+        return $query->orderBy('priority', 'asc');
+    }
 }

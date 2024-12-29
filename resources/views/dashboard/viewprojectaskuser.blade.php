@@ -1,5 +1,5 @@
-@include('dashboard.admin.header')
-@include('dashboard.admin.sidebar')
+@include('dashboard.header')
+@include('dashboard.sidebar')
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -53,12 +53,12 @@
                     {{ Session::get('fail') }}
                     </div>
                 @endif
-                    @foreach ($view_project_tasks as $view_project_task)
+                    @foreach ($view_project_taskusers as $view_project_taskuser)
                    
                     <tr>
-                        <td>{{ $view_project_task->task_name }}</td>
-                        <td>{{ $view_project_task->priority }}</td>
-                        <td>{{ $view_project_task->created_at->format('D d, M Y, H:i')}}</td>
+                        <td>{{ $view_project_taskuser->task_name }}</td>
+                        <td>{{ $view_project_taskuser->priority }}</td>
+                        <td>{{ $view_project_taskuser->created_at->format('D d, M Y, H:i')}}</td>
                       </tr>
                     @endforeach
                  
@@ -87,5 +87,5 @@
     <!-- /.content -->
   </div>
 
-  @include('dashboard.admin.footer')
+  @include('dashboard.footer')
 

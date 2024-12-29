@@ -51,8 +51,6 @@ Route::prefix('admin')->name('admin.')->group(function() {
     
     
     Route::middleware(['auth:admin'])->group(function() {
-        
-       
         Route::get('/home', [AdminController::class, 'home'])->name('home'); 
         Route::get('/logout', [AdminController::class, 'logout'])->name('logout'); 
         Route::get('/addtask', [TaskController::class, 'addtask'])->name('addtask'); 
@@ -61,8 +59,6 @@ Route::prefix('admin')->name('admin.')->group(function() {
         Route::get('/task/edit/{ref_no}', [TaskController::class, 'edit'])->name('edit'); 
         Route::put('/task/updateetask/{ref_no}', [TaskController::class, 'updateetask'])->name('updateetask'); 
         Route::get('/task/destroy/{ref_no}', [TaskController::class, 'destroy'])->name('destroy'); 
-        
-        
         Route::get('/project/viewprojectask/{id}', [ProjectController::class, 'viewprojectask'])->name('viewprojectask'); 
         Route::get('/project/projectdestroy/{ref_no}', [ProjectController::class, 'projectdestroy'])->name('projectdestroy'); 
         Route::put('/project/updateprojects/{ref_no}', [ProjectController::class, 'updateprojects'])->name('updateprojects'); 
@@ -70,7 +66,6 @@ Route::prefix('admin')->name('admin.')->group(function() {
         Route::get('/viewprojects', [ProjectController::class, 'viewprojects'])->name('viewprojects'); 
         Route::get('/addprojects', [ProjectController::class, 'addprojects'])->name('addprojects'); 
         Route::post('/createprojects', [ProjectController::class, 'createprojects'])->name('createprojects'); 
-        
         Route::get('/approveuser/{ref_no}', [UserController::class, 'approveuser'])->name('approveuser'); 
         Route::get('/addroles/{ref_no}', [UserController::class, 'addroles'])->name('addroles'); 
         Route::put('/createrole/{ref_no}', [UserController::class, 'createrole'])->name('createrole'); 
@@ -94,8 +89,13 @@ Route::prefix('web')->name('web.')->group(function() {
     
     Route::middleware(['auth:web'])->group(function() {
         Route::get('/profile', [UserController::class, 'profile'])->name('profile');
+        Route::get('/viewprojectsuser', [ProjectController::class, 'viewprojectsuser'])->name('viewprojectsuser');
+        Route::get('/project/viewprojectaskuser/{id}', [ProjectController::class, 'viewprojectaskuser'])->name('viewprojectaskuser');
+        Route::get('/project/arrange/{id}', [ProjectController::class, 'arrange'])->name('arrange');
+        Route::post('/update-task-priority', [TaskController::class, 'updatePriority']);
+
         Route::get('/logout', [UserController::class, 'logout'])->name('logout');
-       
+        
     });
 });
 

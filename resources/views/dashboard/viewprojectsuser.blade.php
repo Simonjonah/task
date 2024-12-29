@@ -1,5 +1,5 @@
-@include('dashboard.admin.header')
-@include('dashboard.admin.sidebar')
+@include('dashboard.header')
+@include('dashboard.sidebar')
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -27,15 +27,16 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 style="color: red">{{ $project->project_name }} Task</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>Task Name</th>
-                    <th>Priority</th>
+                    <th>Track ID</th>
+                    <th>Project Name</th>
+                    <th>Body</th>
+                   
                     <th>Date</th>
                    
                     
@@ -53,24 +54,31 @@
                     {{ Session::get('fail') }}
                     </div>
                 @endif
-                    @foreach ($view_project_tasks as $view_project_task)
-                   
-                    <tr>
-                        <td>{{ $view_project_task->task_name }}</td>
-                        <td>{{ $view_project_task->priority }}</td>
-                        <td>{{ $view_project_task->created_at->format('D d, M Y, H:i')}}</td>
-                      </tr>
+                    @foreach ($view_project_users as $view_project_user)
+                  <tr>
+
+                    <td>{{ $view_project_user->ref_no }}</td>
+                    <td><a href="{{ url('web/project/viewprojectaskuser/'.$view_project_user->id) }}" target="_blank" rel="noopener noreferrer">{{ $view_project_user->project_name }}</a></td>
+                    <td><a href="{{ url('web/project/arrange/'.$view_project_user->id) }}" target="_blank" rel="noopener noreferrer">{{ $view_project_user->project_name }}</a></td>
+                    <td>{!! $view_project_user->body !!}</td>
+                    
+                    
+                   <td>{{ $view_project_user->created_at->format('D d, M Y, H:i')}}</td>
+                    
+                  </tr>
                     @endforeach
-                 
                   
                   </tbody>
                   <tfoot>
                     <tr>
-                      <th>Task Name</th>
-                      <th>Priority</th>
-                     
-                      <th>Date</th>
-                    </tr>
+                        <th>Track ID</th>
+                        <th>Projects Name</th>
+                        <th>Body</th>
+                       
+                        <th>Date</th>
+                       
+                        
+                      </tr>
                   </tfoot>
                 </table>
               </div>
@@ -87,5 +95,5 @@
     <!-- /.content -->
   </div>
 
-  @include('dashboard.admin.footer')
+  @include('dashboard.footer')
 

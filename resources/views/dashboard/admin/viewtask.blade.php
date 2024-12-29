@@ -30,7 +30,7 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
+                <table  class="table table-bordered table-striped">
                   <thead>
                   <tr>
                    
@@ -70,7 +70,7 @@
                       class='btn btn-danger'>
                        <i class="far fa-trash-alt"></i>
                    </a></td>
-                   <td>{{ $view_task->created_at->format('D d, M Y, H:i')}}</td>
+                   <td>{{ $view_task->created_at->format('D, d M, Y, h:i:a') }}</td>
                     
                   </tr>
                     @endforeach

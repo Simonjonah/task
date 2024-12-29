@@ -41,6 +41,12 @@ class ProjectController extends Controller
         return view('dashboard.admin.viewprojects', compact('view_projects'));
     }
 
+    public function viewprojectsuser(){
+        $view_project_users = Project::latest()->get();
+        return view('dashboard.viewprojectsuser', compact('view_project_users'));
+    }
+
+    
     public function projectedit($ref_no){
         $edit_project = Project::where('ref_no', $ref_no)->first();
         return view('dashboard.admin.projectedit', compact('edit_project'));
@@ -79,5 +85,22 @@ class ProjectController extends Controller
         $view_project_tasks = Task::where('project_id', $id)->orderByRaw('ISNULL(priority), priority ASC')->get();
         return view('dashboard.admin.viewprojectask', compact('project', 'view_project_tasks'));
     }
+
+
+    public function viewprojectaskuser($id){
+        $project = Project::where('id', $id)->first();
+        $view_project_taskusers = Task::where('project_id', $id)->orderByRaw('ISNULL(priority), priority ASC')->get();
+        return view('dashboard.viewprojectaskuser', compact('project', 'view_project_taskusers'));
+    }
+
+
+    public function arrange($id){
+        $project = Project::where('id', $id)->first();
+        $tasks = Task::where('project_id', $id)->orderByRaw('ISNULL(priority), priority ASC')->get();
+        return view('dashboard.arrange', compact('project', 'tasks'));
+    }
+
+
+    
 }
 
