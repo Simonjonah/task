@@ -52,6 +52,16 @@ class UserController extends Controller
 
 
 
+   public function viewusers(){
+        $view_users = User::latest()->get();
+    return view('dashboard.admin.viewusers', compact('view_users'));
+   }
+
+   public function destroy($ref_no){
+    $view_users = User::where('ref_no', $ref_no)->delete();
+    return redirect()->back()->with('success', 'you have deleted the user successfully');
+}
+
    
 
 

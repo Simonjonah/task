@@ -1,7 +1,7 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="{{ url('web/home') }}" class="brand-link">
+    <a href="{{ url('/home') }}" class="brand-link">
     
         <img src="{{ asset('assets/dist/img/logo.jpg') }}" alt="webLTE Logo" class="brand-image "
         style="opacity: .8">
@@ -37,7 +37,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ url('web/home') }}" class="nav-link active">
+                <a href="{{ url('/home') }}" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Dashboard </p>
                 </a>

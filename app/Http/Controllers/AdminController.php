@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
-
+use App\Models\Project;
+use App\Models\Task;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -52,8 +54,12 @@ class AdminController extends Controller
 
 
     public function home(){
+       $counttask = Task::count();
+       $users = User::count();
+       $projectcount = Project::count();
+       $withoutask = Project::doesntHave('tasks')->count();
        
-        return view('dashboard.admin.home');
+        return view('dashboard.admin.home', compact('withoutask', 'projectcount', 'users', 'counttask'));
     }
 
 

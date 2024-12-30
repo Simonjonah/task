@@ -1,5 +1,5 @@
-@include('dashboard.header')
-@include('dashboard.sidebar')
+@include('dashboard.admin.header')
+@include('dashboard.admin.sidebar')
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -36,7 +36,8 @@
                     <th>Track ID</th>
                     <th>Project Name</th>
                     <th>Body</th>
-                   
+                    <th>Edit</th>
+                    <th>Delete</th>
                     <th>Date</th>
                    
                     
@@ -54,16 +55,23 @@
                     {{ Session::get('fail') }}
                     </div>
                 @endif
-                    @foreach ($view_project_users as $view_project_user)
+                    @foreach ($projectwithno_tasks as $projectwithno_task)
                   <tr>
 
-                    <td>{{ $view_project_user->ref_no }}</td>
-                    {{-- <td><a href="{{ url('web/project/viewprojectaskuser/'.$view_project_user->id) }}" target="_blank" rel="noopener noreferrer">{{ $view_project_user->project_name }}</a></td> --}}
-                    <td><a href="{{ url('web/project/arrange/'.$view_project_user->id) }}" target="_blank" rel="noopener noreferrer">{{ $view_project_user->project_name }}</a></td>
-                    <td>{!! $view_project_user->body !!}</td>
-                    
-                    
-                   <td>{{ $view_project_user->created_at->format('D d, M Y, H:i')}}</td>
+                    <td>{{ $projectwithno_task->ref_no }}</td>
+                    <td><a href="{{ url('admin/project/viewprojectask/'.$projectwithno_task->id) }}" target="_blank" rel="noopener noreferrer">{{ $projectwithno_task->project_name }}</a></td>
+                    <td>{!! $projectwithno_task->body !!}</td>
+                    <td><a href="{{ url('admin/project/projectedit/'.$projectwithno_task->ref_no) }}"
+                      class='btn btn-info'>
+                       <i class="far fa-edit"></i>
+                   </a></td>
+                     
+                       
+                     <td><a href="{{ url('admin/project/projectdestroy/'.$projectwithno_task->ref_no) }}"
+                      class='btn btn-danger'>
+                       <i class="far fa-trash-alt"></i>
+                   </a></td>
+                   <td>{{ $projectwithno_task->created_at->format('D d, M Y, H:i')}}</td>
                     
                   </tr>
                     @endforeach
@@ -74,7 +82,8 @@
                         <th>Track ID</th>
                         <th>Projects Name</th>
                         <th>Body</th>
-                       
+                        <th>Edit</th>
+                        <th>Delete</th>
                         <th>Date</th>
                        
                         
@@ -95,5 +104,5 @@
     <!-- /.content -->
   </div>
 
-  @include('dashboard.footer')
+  @include('dashboard.admin.footer')
 

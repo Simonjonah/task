@@ -101,6 +101,12 @@ class ProjectController extends Controller
     }
 
 
+    public function projectwithoutask(){
+        $projectwithno_tasks = Project::doesntHave('tasks')->get();
+        return view('dashboard.admin.projectwithoutask', compact('projectwithno_tasks'));
+    }
+
+    
     
 }
 

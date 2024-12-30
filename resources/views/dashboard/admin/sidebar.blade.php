@@ -68,6 +68,14 @@
                   <p>View Projects</p>
                 </a>
               </li>
+
+
+              <li class="nav-item">
+                <a href="{{ url('admin/projectwithoutask') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Projects Without Task</p>
+                </a>
+              </li>
              
             </ul>
           </li>

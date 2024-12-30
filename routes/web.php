@@ -63,15 +63,14 @@ Route::prefix('admin')->name('admin.')->group(function() {
         Route::get('/project/projectdestroy/{ref_no}', [ProjectController::class, 'projectdestroy'])->name('projectdestroy'); 
         Route::put('/project/updateprojects/{ref_no}', [ProjectController::class, 'updateprojects'])->name('updateprojects'); 
         Route::get('/project/projectedit/{ref_no}', [ProjectController::class, 'projectedit'])->name('projectedit'); 
+        Route::get('/projectwithoutask', [ProjectController::class, 'projectwithoutask'])->name('projectwithoutask'); 
+        
         Route::get('/viewprojects', [ProjectController::class, 'viewprojects'])->name('viewprojects'); 
         Route::get('/addprojects', [ProjectController::class, 'addprojects'])->name('addprojects'); 
         Route::post('/createprojects', [ProjectController::class, 'createprojects'])->name('createprojects'); 
-        Route::get('/approveuser/{ref_no}', [UserController::class, 'approveuser'])->name('approveuser'); 
-        Route::get('/addroles/{ref_no}', [UserController::class, 'addroles'])->name('addroles'); 
-        Route::put('/createrole/{ref_no}', [UserController::class, 'createrole'])->name('createrole'); 
-        Route::get('/deleteuser/{ref_no}', [UserController::class, 'deleteuser'])->name('deleteuser'); 
-        Route::get('/suspenuser/{ref_no}', [UserController::class, 'suspenuser'])->name('suspenuser'); 
+        Route::get('/user/destroy/{ref_no}', [UserController::class, 'destroy'])->name('destroy'); 
         
+        Route::get('/viewusers', [UserController::class, 'viewusers'])->name('viewusers');
         
     });
 });
@@ -93,7 +92,7 @@ Route::prefix('web')->name('web.')->group(function() {
         Route::get('/project/viewprojectaskuser/{id}', [ProjectController::class, 'viewprojectaskuser'])->name('viewprojectaskuser');
         Route::get('/project/arrange/{id}', [ProjectController::class, 'arrange'])->name('arrange');
         Route::post('/update-task-priority', [TaskController::class, 'updatePriority']);
-
+      
         Route::get('/logout', [UserController::class, 'logout'])->name('logout');
         
     });

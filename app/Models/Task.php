@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Models;
-
+ 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Task extends Model
 {
@@ -12,7 +13,12 @@ class Task extends Model
         'priority',
     ];
 
-    public function scopeOrdered($query){
-        return $query->orderBy('priority', 'asc');
+   
+    /**
+     * Get the post that owns the comment.
+     */
+    public function project(): BelongsTo
+    {
+        return $this->belongsTo(Project::class);
     }
 }

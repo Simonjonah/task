@@ -1,5 +1,5 @@
-@include('dashboard.header')
-@include('dashboard.sidebar')
+@include('dashboard.admin.header')
+@include('dashboard.admin.sidebar')
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -8,12 +8,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Task Managements</h1>
+            <h1>Users</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Task Managements</li>
+              <li class="breadcrumb-item active">Users</li>
             </ol>
           </div>
         </div>
@@ -33,13 +33,10 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>Track ID</th>
-                    <th>Project Name</th>
-                    <th>Body</th>
-                   
+                    <th> Name</th>
+                    <th>Email</th>
+                    <th>Delete</th>
                     <th>Date</th>
-                   
-                    
                   </tr>
                   </thead>
                   <tbody>
@@ -54,16 +51,19 @@
                     {{ Session::get('fail') }}
                     </div>
                 @endif
-                    @foreach ($view_project_users as $view_project_user)
+                    @foreach ($view_users as $view_user)
                   <tr>
 
-                    <td>{{ $view_project_user->ref_no }}</td>
-                    {{-- <td><a href="{{ url('web/project/viewprojectaskuser/'.$view_project_user->id) }}" target="_blank" rel="noopener noreferrer">{{ $view_project_user->project_name }}</a></td> --}}
-                    <td><a href="{{ url('web/project/arrange/'.$view_project_user->id) }}" target="_blank" rel="noopener noreferrer">{{ $view_project_user->project_name }}</a></td>
-                    <td>{!! $view_project_user->body !!}</td>
-                    
-                    
-                   <td>{{ $view_project_user->created_at->format('D d, M Y, H:i')}}</td>
+                    <td>{{ $view_user->name }}</td>
+                    <td>{{ $view_user->email }}</td>
+                   
+                     
+                       
+                     <td><a href="{{ url('admin/user/destroy/'.$view_user->ref_no) }}"
+                      class='btn btn-danger'>
+                       <i class="far fa-trash-alt"></i>
+                   </a></td>
+                   <td>{{ $view_user->created_at->format('D d, M Y, H:i')}}</td>
                     
                   </tr>
                     @endforeach
@@ -71,13 +71,10 @@
                   </tbody>
                   <tfoot>
                     <tr>
-                        <th>Track ID</th>
-                        <th>Projects Name</th>
-                        <th>Body</th>
-                       
+                        <th> Name</th>
+                        <th>Email</th>
+                        <th>Delete</th>
                         <th>Date</th>
-                       
-                        
                       </tr>
                   </tfoot>
                 </table>
@@ -95,5 +92,5 @@
     <!-- /.content -->
   </div>
 
-  @include('dashboard.footer')
+  @include('dashboard.admin.footer')
 
