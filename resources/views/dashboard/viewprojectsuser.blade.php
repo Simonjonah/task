@@ -56,15 +56,11 @@
                 @endif
                     @foreach ($view_project_users as $view_project_user)
                   <tr>
-
                     <td>{{ $view_project_user->ref_no }}</td>
                     {{-- <td><a href="{{ url('web/project/viewprojectaskuser/'.$view_project_user->id) }}" target="_blank" rel="noopener noreferrer">{{ $view_project_user->project_name }}</a></td> --}}
                     <td><a href="{{ url('web/project/arrange/'.$view_project_user->id) }}" target="_blank" rel="noopener noreferrer">{{ $view_project_user->project_name }}</a></td>
                     <td>{!! $view_project_user->body !!}</td>
-                    
-                    
                    <td>{{ $view_project_user->created_at->format('D d, M Y, H:i')}}</td>
-                    
                   </tr>
                     @endforeach
                   
