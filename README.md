@@ -22,6 +22,39 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
 ## Learning Laravel
+STEPS TO INSTALL THE TASK APP
+- UNZIP THE FOLDER TO LOCAL MACHINE
+- INSTALL LARAVEL IN LOCAL MACHINE
+- OPEN THE PROJECT IN YOUR CODE EDITOR E.G (VSCODE, PHPSTORM ETC)
+- OPEN TERMINAL AND RUN MIGRATION
+- INSTALL NPM AND NPM RUN DEV
+- THIS IS THE URL FOR USER REGISTRATION (http://127.0.0.1:8000/register)
+- THIS IS THE URL FOR ADMIN REGISTRATION (http://127.0.0.1:8000/admin/register)
+
+IF YOU WANT TO PASS THROUGH GITHUB (https://github.com/Simonjonah/task)
+- DOWNLOAD AND INSTALL IN YOUR LOCAL MACHINE
+- THEN FOLLOW THE ABOVE INSTRUCTIONS
+
+ADMIN:
+- ADD PROJECT
+- VIEW PROJECT
+- VIEW PROJECT WITHOUT TASK
+- EDIT PROJECT
+- DELETE PROJECT
+
+- ADD TASK
+- VIEW TASK
+- EDIT TASK
+- DELETE TASK
+
+- VIEW USER
+- DELETE USER
+
+
+USER DASHBOARD
+- VIEW PROJECT
+- VIEW TASK
+- REORDER TASK
 
 Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
