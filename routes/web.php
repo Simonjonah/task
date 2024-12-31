@@ -92,7 +92,6 @@ Route::prefix('web')->name('web.')->group(function() {
         Route::get('/project/viewprojectaskuser/{id}', [ProjectController::class, 'viewprojectaskuser'])->name('viewprojectaskuser');
         Route::get('/project/arrange/{id}', [ProjectController::class, 'arrange'])->name('arrange');
         Route::post('/update-task-priority', [TaskController::class, 'updatePriority']);
-      
         Route::get('/logout', [UserController::class, 'logout'])->name('logout');
         
     });

@@ -21,14 +21,28 @@
       </div><!-- /.container-fluid -->
     </section>
 <style>
-  .tasks{
-    background-color: lightgray;
-    color: black;
+
+
+
+  #draggable-list {
     list-style: none;
-    padding: 5px;
-    text-align: center;
-    margin: 10px;
-  }
+    padding: 0;
+    width: 200px;
+}
+
+.draggable-item {
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    cursor: grab;
+    
+}
+
+.draggable-item.over {
+    border: 2px dashed #000;
+    background-color: #e9ecef;
+}
 </style>
     <!-- Main content -->
     <section class="content">
@@ -41,11 +55,12 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <ul id="task-list">
+               
+                <ul id="draggable-list">
                   @foreach ($tasks as $task)
-                    <li class="tasks" data-id="{{ $task->id }}">{{ $task->task_name }}</li>
+                  <li data-id="{{ $task->id }}" draggable="true" class="draggable-item">{{ $task->task_name }}</li>
                   @endforeach
-                </ul>
+              </ul>
 
               </div>
               <!-- /.card-body -->
@@ -61,33 +76,43 @@
     <!-- /.content -->
   </div>
 
- 
+ <script>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    let sortableInstance;
-    function initializeSortable() {
-        const taskList = document.getElementById('task-list');
-        if (!taskList) {
-            console.error('Task list element not found.');
-            return;
-        }
-        if (sortableInstance) {
-            sortableInstance.destroy();
-        }
 
-        sortableInstance = Sortable.create(taskList, {
-            animation: 150,
-            onEnd: function () {
-                const orderedIds = Array.from(taskList.children).map(item => item.dataset.id);
-                updateTaskPriorities(orderedIds);
-            },
-        });
-    }
+const list = document.getElementById('draggable-list');
+  let draggedItem = null;
 
-    initializeSortable();
+
+list.addEventListener('dragstart', (e) => {
+    draggedItem = e.target;
+    e.target.style.opacity = '0.5';
 });
-</script>
+
+list.addEventListener('dragend', (e) => {
+    e.target.style.opacity = '1'; 
+    draggedItem = null;
+});
+
+list.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    const hoveredItem = e.target;
+    //DRAG OVER
+    if (hoveredItem && hoveredItem !== draggedItem && hoveredItem.classList.contains('draggable-item')) {
+        const bounding = hoveredItem.getBoundingClientRect();
+        const offset = e.clientY - bounding.top + bounding.height / 2;
+
+       
+        if (offset > bounding.height / 2) {
+            hoveredItem.after(draggedItem);
+        } else {
+            hoveredItem.before(draggedItem);
+        }
+    }
+});
+
+
+ </script>
+
 
   @include('dashboard.footer')
 

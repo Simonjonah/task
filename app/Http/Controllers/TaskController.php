@@ -76,4 +76,7 @@ class TaskController extends Controller
         $delete_task = Task::where('ref_no', $ref_no)->delete();
         return redirect()->back()->with('success', 'You have deleted the task successfully');
     }
+
+
+
 }
